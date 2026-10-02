@@ -246,9 +246,12 @@ class GameService {
     const finalLoc = locations.find(l => l.isActive && l.isFinal) || locations.find(l => l.isFinal);
     const shuffledRoute = [...shuffleArray(nonFinalLocs), finalLoc ? finalLoc.id : 'pos_5'];
 
+    const allQuestions = await this.getQuestions();
     const gameId = `GAME-2026-${Math.floor(1000 + Math.random() * 9000)}`;
     const posProgress: GameSession['posProgress'] = {};
     shuffledRoute.forEach(locId => {
+      const locQuestions = allQuestions.filter(q => q.locationId === locId);
+      const shuffledQ = shuffleArray(locQuestions);
       posProgress[locId] = {
         locationId: locId,
         qrVerified: false,
@@ -256,6 +259,7 @@ class GameService {
         currentQuestionIndex: 0,
         questionAttempts: {},
         solvedQuestions: [],
+        questionOrder: shuffledQ.map(q => q.id),
       };
     });
 
@@ -348,10 +352,23 @@ class GameService {
       localStorage.setItem(LOCAL_SESSION_KEY, JSON.stringify(session));
 
       const allQuestions = await this.getQuestions();
-      const stationQ = allQuestions
-        .filter(q => q.locationId === currentLocId)
-        .slice(0, 5)
-        .map(toClientQuestion);
+      const currentPosProg = session.posProgress[currentLocId];
+      let orderedQ: Question[] = [];
+      if (currentPosProg?.questionOrder && currentPosProg.questionOrder.length > 0) {
+        const qMap = new Map(allQuestions.map(q => [q.id, q]));
+        orderedQ = currentPosProg.questionOrder
+          .map(qid => qMap.get(qid))
+          .filter((q): q is Question => Boolean(q));
+      }
+      if (orderedQ.length === 0) {
+        const locQuestions = allQuestions.filter(q => q.locationId === currentLocId);
+        const shuffledQ = shuffleArray(locQuestions);
+        if (currentPosProg) {
+          currentPosProg.questionOrder = shuffledQ.map(q => q.id);
+        }
+        orderedQ = shuffledQ;
+      }
+      const stationQ = orderedQ.slice(0, 5).map(toClientQuestion);
 
       return {
         matched: true,
@@ -490,8 +507,12 @@ class GameService {
         posProg.solvedQuestions.push(questionId);
       }
 
-      const stQuestions = questions.filter(item => item.locationId === currentLocId).slice(0, 5);
-      const isPosDone = stQuestions.every(item => posProg.solvedQuestions.includes(item.id));
+      const targetQuestionIds = posProg.questionOrder && posProg.questionOrder.length > 0
+        ? posProg.questionOrder
+        : questions.filter(item => item.locationId === currentLocId).slice(0, 5).map(q => q.id);
+      const isPosDone =
+        targetQuestionIds.every(qid => posProg.solvedQuestions.includes(qid)) ||
+        posProg.solvedQuestions.length >= targetQuestionIds.length;
 
       if (isPosDone) {
         posProg.completed = true;

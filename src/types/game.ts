@@ -100,6 +100,7 @@ export interface PosProgress {
   currentQuestionIndex: number;
   questionAttempts: { [questionId: string]: number }; // questionId -> number of attempts used
   solvedQuestions: string[]; // IDs of solved questions
+  questionOrder?: string[]; // IDs of questions in randomized order for this pos
 }
 
 export interface GameSession {

@@ -335,6 +335,9 @@ async function startServer() {
 
     const posProgress: GameSession['posProgress'] = {};
     route.forEach(locId => {
+      // Randomize / shuffle questions for each station
+      const locQuestions = questions.filter(q => q.locationId === locId);
+      const shuffledQ = shuffleArray(locQuestions);
       posProgress[locId] = {
         locationId: locId,
         qrVerified: false,
@@ -342,6 +345,7 @@ async function startServer() {
         currentQuestionIndex: 0,
         questionAttempts: {},
         solvedQuestions: [],
+        questionOrder: shuffledQ.map(q => q.id),
       };
     });
 
@@ -426,11 +430,23 @@ async function startServer() {
     const currentLocConfig = locations.find(l => l.id === currentLocId);
     const currentProgress = session.posProgress[currentLocId];
 
-    // Get client questions for current pos
-    const stationQuestions = questions
-      .filter(q => q.locationId === currentLocId)
-      .slice(0, 5)
-      .map(toClientQuestion);
+    // Get client questions for current pos using randomized questionOrder
+    let orderedQuestions: Question[] = [];
+    if (currentProgress?.questionOrder && currentProgress.questionOrder.length > 0) {
+      const qMap = new Map(questions.map(q => [q.id, q]));
+      orderedQuestions = currentProgress.questionOrder
+        .map(qid => qMap.get(qid))
+        .filter((q): q is Question => Boolean(q));
+    }
+    if (orderedQuestions.length === 0) {
+      const locQuestions = questions.filter(q => q.locationId === currentLocId);
+      const shuffledQ = shuffleArray(locQuestions);
+      if (currentProgress) {
+        currentProgress.questionOrder = shuffledQ.map(q => q.id);
+      }
+      orderedQuestions = shuffledQ;
+    }
+    const stationQuestions = orderedQuestions.slice(0, 5).map(toClientQuestion);
 
     res.json({
       success: true,
@@ -475,11 +491,24 @@ async function startServer() {
     if (scannedClean === targetClean) {
       session.posProgress[currentLocId].qrVerified = true;
 
-      // Prepare 5 questions for this pos
-      const stationQuestions = questions
-        .filter(q => q.locationId === currentLocId)
-        .slice(0, 5)
-        .map(toClientQuestion);
+      // Prepare 5 randomized questions for this pos
+      let orderedQuestions: Question[] = [];
+      const currentPosProg = session.posProgress[currentLocId];
+      if (currentPosProg?.questionOrder && currentPosProg.questionOrder.length > 0) {
+        const qMap = new Map(questions.map(q => [q.id, q]));
+        orderedQuestions = currentPosProg.questionOrder
+          .map(qid => qMap.get(qid))
+          .filter((q): q is Question => Boolean(q));
+      }
+      if (orderedQuestions.length === 0) {
+        const locQuestions = questions.filter(q => q.locationId === currentLocId);
+        const shuffledQ = shuffleArray(locQuestions);
+        if (currentPosProg) {
+          currentPosProg.questionOrder = shuffledQ.map(q => q.id);
+        }
+        orderedQuestions = shuffledQ;
+      }
+      const stationQuestions = orderedQuestions.slice(0, 5).map(toClientQuestion);
 
       return res.json({
         success: true,
@@ -539,10 +568,12 @@ async function startServer() {
       }
 
       // Check if all 5 questions for this pos are answered
-      const stationQuestions = questions.filter(item => item.locationId === currentLocId).slice(0, 5);
+      const targetQuestionIds = posProgress.questionOrder && posProgress.questionOrder.length > 0
+        ? posProgress.questionOrder
+        : questions.filter(item => item.locationId === currentLocId).slice(0, 5).map(q => q.id);
       const isPosCompleted =
-        stationQuestions.every(item => posProgress.solvedQuestions.includes(item.id)) ||
-        posProgress.solvedQuestions.length >= 5;
+        targetQuestionIds.every(qid => posProgress.solvedQuestions.includes(qid)) ||
+        posProgress.solvedQuestions.length >= targetQuestionIds.length;
 
       if (isPosCompleted) {
         posProgress.completed = true;

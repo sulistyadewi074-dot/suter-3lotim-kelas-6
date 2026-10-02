@@ -134,12 +134,19 @@ export default function App() {
             isFinal: locConfig?.isFinal || false,
           });
 
-          // If QR was already verified for this pos, fetch questions
+          // If QR was already verified for this pos, fetch questions using randomized questionOrder
           const posProg = stored.posProgress[currentLocId];
           if (posProg?.qrVerified) {
             const allQ = await gameService.getQuestions();
-            const stationQ = allQ
-              .filter((q) => q.locationId === currentLocId)
+            let ordered = allQ.filter((q) => q.locationId === currentLocId);
+            if (posProg.questionOrder && posProg.questionOrder.length > 0) {
+              const qMap = new Map(allQ.map((q) => [q.id, q]));
+              const mapped = posProg.questionOrder
+                .map((qid) => qMap.get(qid))
+                .filter((q): q is typeof ordered[0] => Boolean(q));
+              if (mapped.length > 0) ordered = mapped;
+            }
+            const stationQ = ordered
               .slice(0, 5)
               .map((q) => ({
                 id: q.id,
