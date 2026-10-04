@@ -86,8 +86,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'rasio',
     diagram: {
       shape: 'rasio_buku_6_8',
-      dimensions: { 'Buku Dongeng': 6, 'Buku Sains': 8, 'Rasio': '3 : 4' },
-      label: 'Kantin: Rasio 6 Buku Dongeng : 8 Buku Sains',
+      dimensions: {},
+      label: 'Kantin: Buku Dongeng & Buku Sains',
     },
   },
   {
@@ -105,8 +105,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'rasio',
     diagram: {
       shape: 'rasio_kelereng_12_18',
-      dimensions: { 'Kelereng Merah': 12, 'Kelereng Hijau': 18, 'FPB': 6 },
-      label: 'Kantin: Rasio 12 Kelereng Merah : 18 Kelereng Hijau',
+      dimensions: {},
+      label: 'Kantin: Kelereng Merah & Hijau',
     },
   },
   {
@@ -124,8 +124,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'rasio',
     diagram: {
       shape: 'rasio_bola_basket_total',
-      dimensions: { 'Bola Basket': 5, 'Bola Voli': 15, 'Total Bola': 20 },
-      label: 'Kantin: Tape Diagram 5 Bola Basket dari Total 20 Bola',
+      dimensions: {},
+      label: 'Kantin: Kuantitas Bola Olahraga',
     },
   },
   {
@@ -142,8 +142,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'buah',
     diagram: {
       shape: 'rasio_apel_merah_hijau',
-      dimensions: { 'Rasio': '3 : 5', 'Apel Hijau': '15 buah (5 kotak)', '1 Kotak': '3 buah' },
-      label: 'Kantin: Tape Diagram Apel Merah (3) : Apel Hijau (5)',
+      dimensions: {},
+      label: 'Kantin: Keranjang Buah Apel',
     },
   },
   {
@@ -160,8 +160,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'buah',
     diagram: {
       shape: 'rasio_pensil_pulpen',
-      dimensions: { 'Rasio': '4 : 7', 'Pulpen': '28 buah (7 bagian)', '1 Bagian': '4 buah' },
-      label: 'Kantin: Model Bagian Pensil (4) : Pulpen (7)',
+      dimensions: {},
+      label: 'Kantin: Suvenir Pensil & Pulpen',
     },
   },
 
@@ -183,8 +183,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'rupiah',
     diagram: {
       shape: 'rasio_satuan_buku',
-      dimensions: { 'Paket': '4 buku = Rp20.000', 'Harga Satuan': 'Rp5.000 / buku' },
-      label: 'UKS: Rasio Satuan Harga 4 Buku = Rp20.000',
+      dimensions: {},
+      label: 'UKS: Paket Buku Panduan Kesehatan',
     },
   },
   {
@@ -201,8 +201,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'km/jam',
     diagram: {
       shape: 'rasio_kecepatan_bus',
-      dimensions: { 'Jarak Tempuh': '180 km', 'Waktu': '3 jam', 'Laju': '60 km/jam' },
-      label: 'UKS: Kecepatan Jarak 180 km dalam 3 Jam',
+      dimensions: {},
+      label: 'UKS: Jarak & Waktu Tempuh Mobil Layanan',
     },
   },
   {
@@ -219,8 +219,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'km',
     diagram: {
       shape: 'rasio_bensin_jarak',
-      dimensions: { '2 Liter': '90 km', '1 Liter': '45 km', '5 Liter': '225 km' },
-      label: 'UKS: Konsumsi Bensin 2 Liter = 90 km',
+      dimensions: {},
+      label: 'UKS: Konsumsi Bensin Sepeda Motor',
     },
   },
   {
@@ -243,8 +243,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'toko',
     diagram: {
       shape: 'rasio_toko_penghapus',
-      dimensions: { 'Toko A': 'Rp4.000 / buah', 'Toko B': 'Rp3.500 / buah', 'Hemat': 'Rp500' },
-      label: 'UKS: Perbandingan Rasio Harga Satuan Toko A vs Toko B',
+      dimensions: {},
+      label: 'UKS: Perbandingan Harga Termometer di Apotek',
     },
   },
   {
@@ -261,8 +261,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'menit',
     diagram: {
       shape: 'rasio_lari_lapangan',
-      dimensions: { '4 Keliling': '12 menit', '1 Keliling': '3 menit', '7 Keliling': '21 menit' },
-      label: 'UKS: Laju Lari Kebugaran 4 Keliling = 12 Menit',
+      dimensions: {},
+      label: 'UKS: Catatan Tes Lari Siswa',
     },
   },
 
@@ -273,7 +273,7 @@ export const DEFAULT_QUESTIONS: Question[] = [
     id: 'q_pos_3_1',
     locationId: 'pos_3',
     question:
-      'Di dapur sekolah, rasio panjang pita pembungkus kue Ani terhadap pita Budi adalah 2 : 3 (lihat diagram batang di bawah). Jika panjang pita Ani adalah 10 cm, berapakah panjang pita Budi?',
+      'Di dapur sekolah, rasio panjang pita pembungkus kue Ani terhadap pita Budi adalah 2 : 3 (lihat gambar ilustrasi di bawah). Jika panjang pita Ani adalah 10 cm, berapakah panjang pita Budi?',
     shapeType: 'rasio_pita',
     type: 'pilihan_ganda',
     difficulty: 'mudah',
@@ -284,8 +284,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'cm',
     diagram: {
       shape: 'rasio_pita_ani_budi',
-      dimensions: { 'Ani (2 bagian)': '10 cm', '1 Bagian': '5 cm', 'Budi (3 bagian)': '15 cm' },
-      label: 'Dapur: Tape Diagram Pita Ani (2) : Pita Budi (3)',
+      dimensions: {},
+      label: 'Dapur: Pita Pembungkus Kue',
     },
   },
   {
@@ -302,8 +302,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'cangkir',
     diagram: {
       shape: 'rasio_sirup_air',
-      dimensions: { 'Rasio': '1 : 4', 'Sirup': '6 cangkir', 'Air': '24 cangkir' },
-      label: 'Dapur: Campuran Sirup (1) : Air (4)',
+      dimensions: {},
+      label: 'Dapur: Takaran Sirup & Air',
     },
   },
   {
@@ -321,8 +321,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'kaleng',
     diagram: {
       shape: 'rasio_cat_kuning_biru',
-      dimensions: { 'Rasio': '3 : 2', 'Kuning': '12 kaleng (3×4)', 'Biru': '8 kaleng (2×4)' },
-      label: 'Dapur: Campuran Cat 3 Kuning + 2 Biru = Hijau',
+      dimensions: {},
+      label: 'Dapur: Resep Campuran Cat',
     },
   },
   {
@@ -340,8 +340,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'bibit',
     diagram: {
       shape: 'tabel_rasio_bibit',
-      dimensions: { 'Rasio': '3 : 7', 'Mangga': '3, 6, 12', 'Jambu': '7, 14, X=28' },
-      label: 'Dapur: Tabel Rasio Bibit Mangga (3) : Jambu (7)',
+      dimensions: {},
+      label: 'Dapur: Tabel Rasio Bibit Kebun Gizi',
     },
   },
   {
@@ -358,8 +358,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'gram',
     diagram: {
       shape: 'rasio_tepung_bolu',
-      dimensions: { '5 Porsi': '250 gram', '1 Porsi': '50 gram', '8 Porsi': '400 gram' },
-      label: 'Dapur: Proporsi Resep 5 Porsi = 250 g Tepung',
+      dimensions: {},
+      label: 'Dapur: Takaran Bahan Kue Bolu',
     },
   },
 
@@ -381,8 +381,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'tahun',
     diagram: {
       shape: 'rasio_umur_kakak_adik',
-      dimensions: { 'Rasio': '5 : 3', 'Total Bagian': '8 = 24 th', '1 Bagian': '3 tahun' },
-      label: 'Toilet: Model Jumlah Umur Kakak (5) & Adik (3) = 24 Tahun',
+      dimensions: {},
+      label: 'Toilet: Perbandingan Umur Kakak & Adik',
     },
   },
   {
@@ -399,8 +399,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'rupiah',
     diagram: {
       shape: 'rasio_uang_rian_dika',
-      dimensions: { 'Rasio': '7 : 4', 'Selisih': '3 bag = Rp15.000', '1 Bagian': 'Rp5.000' },
-      label: 'Toilet: Model Selisih Uang Rian (7) & Dika (4)',
+      dimensions: {},
+      label: 'Toilet: Sisa Uang Saku Rian & Dika',
     },
   },
   {
@@ -418,8 +418,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'anak',
     diagram: {
       shape: 'rasio_gender_kelas_6',
-      dimensions: { 'Rasio': '3 : 5', 'Total Siswa': '40 anak (8 bag)', 'Perempuan': '25 anak' },
-      label: 'Toilet: Model Bagian Siswa Laki-laki (3) & Perempuan (5)',
+      dimensions: {},
+      label: 'Toilet: Data Demografi Siswa Kelas 6',
     },
   },
   {
@@ -437,8 +437,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'rupiah',
     diagram: {
       shape: 'rasio_tabungan_siti_dewi',
-      dimensions: { 'Rasio': '3 : 4', 'Total': '7 bag = Rp350.000', 'Selisih': '1 bag = Rp50.000' },
-      label: 'Toilet: Model Tabungan Siti (3) & Dewi (4) = Rp350.000',
+      dimensions: {},
+      label: 'Toilet: Celengan Tabungan Siti & Dewi',
     },
   },
   {
@@ -455,8 +455,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'butir',
     diagram: {
       shape: 'rasio_kelereng_farhan_gilang',
-      dimensions: { 'Rasio': '5 : 8', 'Selisih': '3 blok = 18 butir', 'Gilang': '48 butir' },
-      label: 'Toilet: Model Selisih Kelereng Farhan (5) & Gilang (8)',
+      dimensions: {},
+      label: 'Toilet: Saku Kelereng Farhan & Gilang',
     },
   },
 
@@ -478,8 +478,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'km',
     diagram: {
       shape: 'rasio_skala_peta',
-      dimensions: { 'Skala': '1 : 50.000', 'Jarak Peta': '6 cm', 'Sebenarnya': '3 km' },
-      label: 'Pohon Jambu: Peta Petualangan Skala 1 : 50.000',
+      dimensions: {},
+      label: 'Pohon Jambu: Peta Pulau Harta Karun',
     },
   },
   {
@@ -496,8 +496,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'keping',
     diagram: {
       shape: 'rasio_koin_harta_karun',
-      dimensions: { 'Rasio 3 Bagian': '2 : 3 : 5', 'Total Koin': '150 (10 bag)', 'Perunggu': '75 keping' },
-      label: 'Pohon Jambu: Peti Harta Karun Koin Emas (2) : Perak (3) : Perunggu (5)',
+      dimensions: {},
+      label: 'Pohon Jambu: Peti Koin Emas, Perak, Perunggu',
     },
   },
   {
@@ -515,8 +515,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'rasio',
     diagram: {
       shape: 'rasio_tiga_petualang',
-      dimensions: { 'Ali : Budi': '2 : 3', 'Budi : Candra': '4 : 5', 'Hasil Gabungan': '8 : 12 : 15' },
-      label: 'Pohon Jambu: Rasio 3 Variabel Ali : Budi : Candra',
+      dimensions: {},
+      label: 'Pohon Jambu: Perbandingan Permata 3 Petualang',
     },
   },
   {
@@ -534,8 +534,8 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'butir',
     diagram: {
       shape: 'rasio_transisi_permata',
-      dimensions: { 'Awal': '5 : 3', 'Setelah +6': '2 : 1 (6:3)', 'Total Mula-mula': '48 butir' },
-      label: 'Pohon Jambu: Tantangan Permata Awal (Rasio 5 : 3)',
+      dimensions: {},
+      label: 'Pohon Jambu: Wadah Permata Mula-mula',
     },
   },
   {
@@ -552,8 +552,9 @@ export const DEFAULT_QUESTIONS: Question[] = [
     unit: 'm²',
     diagram: {
       shape: 'rasio_lapangan_skala',
-      dimensions: { 'Denah': '8 cm × 5 cm', 'Skala': '1 : 200', 'Luas Nyata': '160 m²' },
-      label: 'Pohon Jambu: Denah Arsitektur Skala 1 : 200',
+      dimensions: {},
+      label: 'Pohon Jambu: Denah Arsitektur Lapangan Upacara',
     },
   },
 ];
+
