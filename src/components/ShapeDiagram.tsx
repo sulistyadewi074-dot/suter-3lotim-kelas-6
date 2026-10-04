@@ -586,7 +586,7 @@ export const ShapeDiagram: React.FC<Props> = ({ diagram }) => {
           </svg>
         )}
 
-        {/* ======================= POS 5: DI BAWAH POHON JAMBU ======================= */}
+        {/* ======================= POS 5: WALI KELAS 6 ======================= */}
 
         {/* Q21: Skala Peta: 1 : 50.000, Jarak peta = 6 cm */}
         {shape === 'rasio_skala_peta' && (
@@ -599,7 +599,7 @@ export const ShapeDiagram: React.FC<Props> = ({ diagram }) => {
               <circle cx="28" cy="34" r="14" fill="#ffffff" stroke="#b45309" strokeWidth="1.5" />
               <text x="28" y="38" textAnchor="middle" fontSize="14">🧭</text>
 
-              <text x="55" y="30" fill="#78350f" fontSize="10" fontWeight="bold">Pos SDN 3</text>
+              <text x="55" y="30" fill="#78350f" fontSize="10" fontWeight="bold">Meja Wali Kelas 6</text>
               <line x1="55" y1="44" x2="210" y2="44" stroke="#b45309" strokeWidth="2" strokeDasharray="5 3" />
               <text x="132" y="40" textAnchor="middle" fill="#991b1b" fontSize="10" fontWeight="bold">Jarak Peta: 6 cm</text>
               <text x="220" y="44" fontSize="18">🏝️</text>

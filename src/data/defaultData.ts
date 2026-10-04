@@ -44,12 +44,12 @@ export const DEFAULT_LOCATIONS: LocationConfig[] = [
   {
     id: 'pos_5',
     code: 'POS 5',
-    name: 'DI BAWAH POHON JAMBU',
+    name: 'WALI KELAS 6',
     qrCode: 'MATH-LOC-FINAL-001',
-    hint: '🌳🍈 Tantangan Terakhir Harta Karun! Carilah pohon berdaun rindang dengan buah jambu yang segar di halaman sekolah. Peti harta karun tersimpan tepat di bawahnya!',
+    hint: '👩‍🏫👨‍🏫 Pos Final Petualangan! Temui sosok pembimbing setia kelas 6 di mejanya yang penuh berkas dan buku. Peti harta karun tersimpan aman bersamanya!',
     isFinal: true,
     isActive: true,
-    iconName: 'Trees',
+    iconName: 'GraduationCap',
   },
 ];
 
@@ -63,7 +63,7 @@ export const DEFAULT_SETTINGS: GameSettings = {
   pointsGameBonus: 500,
   hintMode: 'adventure',
   treasureCode: 'RASIO-HEBAT-SDN3',
-  teacherMessage: 'Selamat! Kamu telah menguasai seluruh konsep rasio kelas 6 di bawah pohon jambu. Segera temui guru pendamping untuk mengambil harta karun aslimu!',
+  teacherMessage: 'Selamat! Kamu telah menguasai seluruh konsep rasio matematika kelas 6 bersama Wali Kelas 6. Buka peti harta karunmu sekarang!',
   leaderboardEnabled: true,
 };
 
@@ -461,13 +461,13 @@ export const DEFAULT_QUESTIONS: Question[] = [
   },
 
   // ==========================================
-  // --- POS 5: DI BAWAH POHON JAMBU (POS FINAL HARTA KARUN - 5 SOAL TANTANGAN) ---
+  // --- POS 5: WALI KELAS 6 (POS FINAL HARTA KARUN - 5 SOAL TANTANGAN) ---
   // ==========================================
   {
     id: 'q_pos_5_1',
     locationId: 'pos_5',
     question:
-      'Di bawah pohon jambu ditemukan peta petualangan harta karun dengan skala 1 : 50.000. Jika jarak dari pos sekolah ke pulau harta karun pada peta adalah 6 cm, berapakah jarak sebenarnya dalam kilometer (km)?',
+      'Di meja Wali Kelas 6 tersimpan peta petualangan harta karun dengan skala 1 : 50.000. Jika jarak dari pos sekolah ke pulau harta karun pada peta adalah 6 cm, berapakah jarak sebenarnya dalam kilometer (km)?',
     shapeType: 'rasio_skala',
     type: 'pilihan_ganda',
     difficulty: 'sulit',
@@ -479,14 +479,14 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'rasio_skala_peta',
       dimensions: {},
-      label: 'Pohon Jambu: Peta Pulau Harta Karun',
+      label: 'Wali Kelas 6: Peta Pulau Harta Karun',
     },
   },
   {
     id: 'q_pos_5_2',
     locationId: 'pos_5',
     question:
-      'Di dalam peti harta karun di bawah pohon jambu terdapat koin emas, perak, dan perunggu dengan rasio 2 : 3 : 5. Jika total seluruh koin di dalam peti adalah 150 keping, berapa banyakkah keping koin perunggu?',
+      'Di samping meja Wali Kelas 6 terdapat peti harta karun berisi koin emas, perak, dan perunggu dengan rasio 2 : 3 : 5. Jika total seluruh koin di dalam peti adalah 150 keping, berapa banyakkah keping koin perunggu?',
     shapeType: 'rasio_tiga',
     type: 'isian_angka',
     difficulty: 'sulit',
@@ -497,14 +497,14 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'rasio_koin_harta_karun',
       dimensions: {},
-      label: 'Pohon Jambu: Peti Koin Emas, Perak, Perunggu',
+      label: 'Wali Kelas 6: Peti Koin Emas, Perak, Perunggu',
     },
   },
   {
     id: 'q_pos_5_3',
     locationId: 'pos_5',
     question:
-      'Tiga petualang di bawah pohon jambu membagi permata: Rasio permata Ali : Budi = 2 : 3, sedangkan rasio permata Budi : Candra = 4 : 5. Berapakah perbandingan gabungan permata Ali : Budi : Candra dalam bentuk paling sederhana?',
+      'Tiga petualang menghadap Wali Kelas 6 untuk membagi permata: Rasio permata Ali : Budi = 2 : 3, sedangkan rasio permata Budi : Candra = 4 : 5. Berapakah perbandingan gabungan permata Ali : Budi : Candra dalam bentuk paling sederhana?',
     shapeType: 'rasio_tiga',
     type: 'pilihan_ganda',
     difficulty: 'sulit',
@@ -516,14 +516,14 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'rasio_tiga_petualang',
       dimensions: {},
-      label: 'Pohon Jambu: Perbandingan Permata 3 Petualang',
+      label: 'Wali Kelas 6: Perbandingan Permata 3 Petualang',
     },
   },
   {
     id: 'q_pos_5_4',
     locationId: 'pos_5',
     question:
-      'Sebuah wadah di bawah pohon jambu mulanya berisi permata merah dan biru dengan rasio 5 : 3. Ditambahkan 6 butir permata merah ke dalam wadah sehingga rasionya kini menjadi 2 : 1. Berapakah jumlah seluruh permata di wadah sebelum penambahan?',
+      'Di atas meja Wali Kelas 6 terdapat wadah yang mulanya berisi permata merah dan biru dengan rasio 5 : 3. Ditambahkan 6 butir permata merah ke dalam wadah sehingga rasionya kini menjadi 2 : 1. Berapakah jumlah seluruh permata di wadah sebelum penambahan?',
     shapeType: 'rasio_tantangan',
     type: 'pilihan_ganda',
     difficulty: 'sulit',
@@ -535,14 +535,14 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'rasio_transisi_permata',
       dimensions: {},
-      label: 'Pohon Jambu: Wadah Permata Mula-mula',
+      label: 'Wali Kelas 6: Wadah Permata Mula-mula',
     },
   },
   {
     id: 'q_pos_5_5',
     locationId: 'pos_5',
     question:
-      'Pada denah arsitektur sekolah di dekat pohon jambu, lapangan upacara digambar berukuran panjang 8 cm dan lebar 5 cm dengan skala 1 : 200. Berapakah luas sebenarnya lapangan upacara tersebut dalam meter persegi (m²)?',
+      'Wali Kelas 6 memperlihatkan denah arsitektur sekolah, di mana lapangan upacara digambar berukuran panjang 8 cm dan lebar 5 cm dengan skala 1 : 200. Berapakah luas sebenarnya lapangan upacara tersebut dalam meter persegi (m²)?',
     shapeType: 'rasio_skala',
     type: 'isian_angka',
     difficulty: 'sulit',
@@ -553,7 +553,7 @@ export const DEFAULT_QUESTIONS: Question[] = [
     diagram: {
       shape: 'rasio_lapangan_skala',
       dimensions: {},
-      label: 'Pohon Jambu: Denah Arsitektur Lapangan Upacara',
+      label: 'Wali Kelas 6: Denah Arsitektur Lapangan Upacara',
     },
   },
 ];
